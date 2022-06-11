@@ -61,6 +61,9 @@ class Solution
          {
               arr[mainArrIndex++]=rgtarr[p2++];
          }
+         
+         delete[] leftarr;
+         delete[] rgtarr;
     }
     public:
     void mergeSort(int arr[], int l, int r)

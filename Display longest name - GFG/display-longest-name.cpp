@@ -12,17 +12,14 @@ class Solution{
     public:
     string longest(string names[], int n)
     {
-        int max=names[0].length();
-        string ans=names[0];
+        string max=names[0];
         for(int i=1;i<n;i++){
-            if(names[i].length()>max)
+            if(names[i].length()>max.length())
             {
-                max=names[i].length();
-                ans=names[i];
+                max=names[i];
             }
-            
         }
-        return ans;
+        return max;
     }
 };
 

@@ -1,14 +1,16 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int i;
-        for(i=0;i<nums.size()-1;)
+        //using bitwise XOR
+        //a^a=0 
+        //a^0=a
+        //a^b=b^a
+        
+        int ans=0;
+        for(int num:nums)
         {
-            if(nums[i]!=nums[i+1])
-                return nums[i];
-            i+=2;
+            ans=ans^num;
         }
-        return nums[i];
+        return ans;
     }
 };

@@ -7,23 +7,13 @@ using namespace std;
 class Solution
 {
     public:
-        int max_count(int count[],int N)
-        {
-            int max_one=count[0];
-            int max_idx=0;
-            for(int i=1;i<N;i++)
-            {
-                if(count[i]>max_one){
-                    max_one=count[i];
-                    max_idx=i;
-                }
-            }
-            return max_idx;
-        }
+    
         int maxOnes (vector <vector <int>> &Mat, int N, int M)
         {
             // your code here
             int count[N];
+            int max_count=0;
+            int row_idx;
             for(int i=0;i<N;i++)
             {
                 count[i]=0;
@@ -32,9 +22,13 @@ class Solution
                     if(Mat[i][j]==1)
                         count[i]++;
                 }
+                if(count[i]>max_count)
+                {
+                    max_count=count[i];
+                    row_idx=i;
+                }
             }
-            int max = max_count(count,N);
-            return max;
+            return row_idx;
         }
 };
 

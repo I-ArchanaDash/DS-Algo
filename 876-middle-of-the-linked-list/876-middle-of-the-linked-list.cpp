@@ -11,22 +11,35 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        //find middle position
-        ListNode* temp=head;
-        int len=1;
-        while(temp->next!=NULL)
-        {
-            len++;
-            temp=temp->next;
-        }
-        int pos=((len%2)==0)?len/2+1:(len+1)/2;
+//         BRUTE FORCE APPROACH
         
-        //return middle node
-        ListNode* curr=head;
-        while(pos-- >1)
+//         //find middle position
+//         ListNode* temp=head;
+//         int len=1;
+//         while(temp->next!=NULL)
+//         {
+//             len++;
+//             temp=temp->next;
+//         }
+//         int pos=((len%2)==0)?len/2+1:(len+1)/2;
+        
+//         //return middle node
+//         ListNode* curr=head;
+//         while(pos-- >1)
+//         {
+//             curr=curr->next;
+//         }
+//         return curr;
+        
+        
+//         OPTIMAL APPROACH WITH SINGLE ITERATION
+        ListNode* slow=head;
+        ListNode* fast=head;
+        while(fast!=NULL && fast->next!=NULL)
         {
-            curr=curr->next;
+            slow=slow->next;
+            fast=(fast->next)->next;
         }
-        return curr;
+        return slow;
     }
 };

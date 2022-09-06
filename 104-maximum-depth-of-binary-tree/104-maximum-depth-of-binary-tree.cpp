@@ -38,6 +38,6 @@ public:
             ans.push_back(data);
             depth++;
         }
-        return depth;
+       
     }
 };
